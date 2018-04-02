@@ -87,9 +87,36 @@ html, body {
 
 #img,#imgwood,#imgdraw,#imgclimb,#imgfun,#imgsites {
 	width:100%;
-	float:left;
+	/*float:left;*/
+	/*height:auto;*/
 	display: block;
 }
+
+div.flavor {
+	position:relative;
+}
+
+div.text {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	box-sizing: border-box;
+	visibility: hidden;
+	position:absolute;
+	bottom:0;
+	width:96%;
+	padding: 2%;
+	font-weight: normal;
+	font-size: 13px;
+	/*display:block;*/
+}
+
+.flavor:hover .text{
+	visibility: visible;
+	background-color: #ffffffe6;
+	width:100%;
+	height:auto;
+}
+
 
 #slide {
 	max-width: 100%;
@@ -98,12 +125,10 @@ html, body {
 
 #thebigbutton {
 	position: relative;
-	/*background-color: orange;*/
 	width:200px;
 	height:100%;
 	padding: 0px;
 	margin: 0px auto;
-	/*text-align: center;*/
 }
 
 #menubutton {
@@ -180,4 +205,9 @@ a:link:active, a:visited:active {
   #about {
     font-size: 8px;
   }
+  div.text {
+  	font-size: 9px;
+  }
+
+  
 }
