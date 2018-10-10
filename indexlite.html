@@ -49,16 +49,17 @@
 			}
 		}
 	</script>
-	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<!-- CUT DOWN THE D3 TO JUST THE ARC -->
+	<!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
 	<!-- <script src="//code.jquery.com/jquery-1.12.4.js"></script> -->
 	<!-- <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
-	<script type = "text/javascript"
+	<!-- <script type = "text/javascript"
          src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
       </script>
 		
     <script type = "text/javascript" 
          src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
-      </script>
+      </script> -->
 
 	<script type="text/javascript">
 		// var svg = d3.select("svg");
@@ -66,10 +67,10 @@
 		//     // height = +svg.attr("height"),
 		//     g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-	    var arc = d3.arc()
-		    .innerRadius(4)
-		    .outerRadius(6)
-		    .endAngle(2*Math.PI);
+	    // var arc = d3.arc()
+		   //  .innerRadius(4)
+		   //  .outerRadius(6)
+		   //  .endAngle(2*Math.PI);
 
 	    // var unwind = svg.append("path")
 		   //  .datum({endAngle: 2.5 * Math.PI})
@@ -106,48 +107,51 @@
 		  return y;
 		}
 
-		function highlight() {
-			document.getElementById('thebigbutton').style.color = '#404040'
-			lineup.transition().duration(1000).attr("width", 116)
-			unwind.transition().duration(1000).attrTween("d", arcUnwind(2*Math.PI))
-		}
+		// function highlight() {
+		// 	document.getElementById('thebigbutton').style.color = '#404040'
+		// 	lineup.transition().duration(1000).attr("width", 116)
+		// 	unwind.transition().duration(1000).attrTween("d", arcUnwind(2*Math.PI))
+		// }
 
-		function unHighlight() {
-			document.getElementById('thebigbutton').style.color = 'black'
-			lineup.transition().duration(1000).attr("width", 0)
-			unwind.transition().duration(1000).attrTween("d", arcWind(0*Math.PI))
-		}
+		// function unHighlight() {
+		// 	document.getElementById('thebigbutton').style.color = 'black'
+		// 	lineup.transition().duration(1000).attr("width", 0)
+		// 	unwind.transition().duration(1000).attrTween("d", arcWind(0*Math.PI))
+		// }
 
 
 
-		function arcUnwind(a) {
-		  return function(d) {
-		    var int = d3.interpolate(d.startAngle, a);
-		    return function(t) {
-		      d.startAngle = int(t);
-		      return arc(d);
-		    };
-		  };
-		}
-		function arcWind(a) {
-		  return function(d) {
-		    var int = d3.interpolate(d.startAngle, a);
-		    return function(t) {
-		      d.startAngle = int(t);
-		      return arc(d);
-		    };
-		  };
-		}
+		// function arcUnwind(a) {
+		//   return function(d) {
+		//     var int = d3.interpolate(d.startAngle, a);
+		//     return function(t) {
+		//       d.startAngle = int(t);
+		//       return arc(d);
+		//     };
+		//   };
+		// }
+		// function arcWind(a) {
+		//   return function(d) {
+		//     var int = d3.interpolate(d.startAngle, a);
+		//     return function(t) {
+		//       d.startAngle = int(t);
+		//       return arc(d);
+		//     };
+		//   };
+		// }
 	</script>
 </head>
 <!-- <body onscroll="appear()"> -->
 <body onload = "buildIt()", onscroll = "appear()">
 	<!-- <body> -->
 <header id="showme">
-	<div id="thebigbutton" onclick="reset()" onmouseover="highlight()" onmouseleave="unHighlight()">
-		<div style="position: relative;top:15px">return to start</div>
+	<!-- <div id="thebigbutton" onclick="reset()" onmouseover="highlight()" onmouseleave="unHighlight()"> -->
+	<div id="thebigbutton" onclick="reset()">
+		<!-- <div style="position: relative;top:15px">return to start</div> -->
+		<!-- <div style="vertical-align:middle;">return to start</div> -->
+		<span style = "font-size: 20px">return to start</span>
 		<svg width="100%" height="12px" style="position: relative; background-color: #ffffff00; top:10px; left: 0;"></svg>
-		<script>
+		<!-- <script>
 			var svg = d3.select("svg");
 				width = +svg.attr("width"),
 			    height = +svg.attr("height"),
@@ -165,7 +169,7 @@
 	              .attr("y", 0)
 	              .attr("width", 0)
 	              .attr("height", 2);
-		</script>
+		</script> -->
 	</div>
 	<div id = "help">
 		<img src="./resources/q.png" style = "position: absolute; display:block;margin:auto;">
@@ -232,7 +236,7 @@
 	</div>
 	<div id="about">
 		<div id = "footb">
-			This website was made by me using html, css, and javascript. Previously I created and hosted my personal website using various website building services, but I decided to explore doing it on my own. I poured over W3 schools, stack exchange, and many blogs to learn enough to make it happen. I use this as a way to explore the languages, and display my work and hobbies. If you have any questions about what you see, I can be contacted at me@colindess.com
+			This website was made by me using html, css, and javascript. Previously I created and hosted my personal website using various website building services, but I decided to explore doing it on my own. I poured over W3 schools, stack exchange, and many blogs to learn enough to make it happen. I use this as a way to explore the languages, and display my work and hobbies. If you have any questions about what you see, I can be contacted at <b>ME@COLINDESS.COM</b>. If you want to see how this is built, or my other code adventures, check out my <a href="https://github.com/cdSheriff", target = "_blank", style = "font-weight: bold;">GITHUB</a>
 		</div>
 		<div style="font-size: 10px" id="footh">all images and drawings are used with permission of the employer</div>
 	</div>
